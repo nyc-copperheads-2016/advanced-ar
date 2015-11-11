@@ -13,4 +13,7 @@ class Bird < ActiveRecord::Base
 
   # We've named the foreign key to describe what the relationship is more clearly, so we have to tell it that the class is a House
   belongs_to :primary_house, class: House
+
+  # We can name the relationship chicks here... we need to use the :source param to tell it where to look on the through association to find the record
+  has_many :chicks, through: :eggs, source: :offspring
 end
