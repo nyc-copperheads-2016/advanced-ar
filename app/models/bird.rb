@@ -16,4 +16,10 @@ class Bird < ActiveRecord::Base
 
   # We can name the relationship chicks here... we need to use the :source param to tell it where to look on the through association to find the record
   has_many :chicks, through: :eggs, source: :offspring
+
+  # Describe where we come from.  If we made the relationship "Offspring" that would be confusing (Isnt it already confusing enough?!?).  Lets name it "lineage" so that it accurately describes the direction we're going
+  has_one :lineage, foreign_key: :progeny_id, class: Offspring
+
+  # Once we have the previous relationship in place, we can get back to the parents... we still need to tell AR what class the parents object is (Pair)
+  has_one :parents, through: :lineage, class: Pair
 end
