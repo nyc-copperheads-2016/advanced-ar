@@ -1,4 +1,4 @@
-class CreateBirds < ActiveRecord::Migration
+class CreateSnakes < ActiveRecord::Migration
   def change
     create_table :snakes do |t|
       t.string :name, null: false
