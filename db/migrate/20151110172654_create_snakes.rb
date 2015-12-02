@@ -1,6 +1,6 @@
 class CreateBirds < ActiveRecord::Migration
   def change
-    create_table :birds do |t|
+    create_table :snakes do |t|
       t.string :name, null: false
       t.string :color, null: false
       t.string :sex, null: false
